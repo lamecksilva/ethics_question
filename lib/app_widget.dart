@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hello_mundo/app_controller.dart';
+import 'package:hello_mundo/home_page.dart';
 import 'package:hello_mundo/login_page.dart';
 
 class AppWidget extends StatelessWidget {
@@ -11,13 +12,16 @@ class AppWidget extends StatelessWidget {
       animation: AppController.instance,
       builder: (context, child) {
         return MaterialApp(
-          theme: ThemeData(
-              primarySwatch: Colors.red,
-              brightness: AppController.instance.isDarkTheme
-                  ? Brightness.dark
-                  : Brightness.light),
-          home: const LoginPage(),
-        );
+            theme: ThemeData(
+                primarySwatch: Colors.red,
+                brightness: AppController.instance.isDarkTheme
+                    ? Brightness.dark
+                    : Brightness.light),
+            initialRoute: "/",
+            routes: {
+              '/': (context) => const LoginPage(),
+              '/home': (context) => const HomePage(),
+            });
       },
     );
   }

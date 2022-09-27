@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hello_mundo/home_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -53,10 +52,8 @@ class _LoginPageState extends State<LoginPage> {
                               if (email == 'lameco@gmail.com' &&
                                   password == "123") {
                                 debugPrint("Correct");
-                                Navigator.of(context).pushReplacement(
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            const HomePage()));
+                                Navigator.of(context)
+                                    .pushReplacementNamed('/home');
                               } else {
                                 debugPrint("Wrong");
                               }
